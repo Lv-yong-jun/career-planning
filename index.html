@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<title>大学生职业规划测评 | 高校就业指导中心</title>
+<title>大学生多维度生涯规划测评 | 高校就业指导中心</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue",Microsoft YaHei,sans-serif;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);color:#333;min-height:100vh}
@@ -12,7 +12,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue"
 /* 封面 */
 #page-cover{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;text-align:center;color:#fff;padding:40px 20px}
 #page-cover .logo-icon{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#667eea,#764ba2);display:flex;align-items:center;justify-content:center;font-size:36px;margin-bottom:24px;box-shadow:0 8px 32px rgba(102,126,234,0.4)}
-#page-cover h1{font-size:26px;font-weight:700;margin-bottom:12px;background:linear-gradient(90deg,#667eea,#764ba2);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+#page-cover h1{font-size:24px;font-weight:700;margin-bottom:12px;background:linear-gradient(90deg,#667eea,#764ba2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
 #page-cover .subtitle{font-size:14px;color:#aaa;line-height:1.8;margin-bottom:32px}
 #page-cover .start-btn{padding:14px 48px;border-radius:30px;background:linear-gradient(90deg,#667eea,#764ba2);color:#fff;font-size:17px;font-weight:600;border:none;cursor:pointer;box-shadow:0 6px 20px rgba(102,126,234,0.5);transition:.3s}
 #page-cover .start-btn:active{transform:scale(.96);box-shadow:0 3px 10px rgba(102,126,234,.3)}
@@ -23,71 +23,89 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue"
 .page.active{display:block;animation:fadeUp .4s ease}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 
-/* 进度条 */
 .progress-bar{height:4px;background:#eee;border-radius:2px;margin-bottom:24px;overflow:hidden}
-.progress-bar .fill{height:100%;background:linear-gradient(90deg,#667eea,#764ba2);border-radius:2px;transition:width .4s ease;width:0%}
+.progress-bar .fill{height:100%;background:linear-gradient(90deg,#667eea,#764ba2);border-radius:2px;transition:width .4s ease}
 .step-label{text-align:center;font-size:13px;color:#999;margin-bottom:20px;font-weight:500}
 
-/* 问题 */
 .q-title{font-size:18px;font-weight:700;color:#1a1a2e;margin-bottom:20px;line-height:1.5}
 .q-desc{font-size:13px;color:#888;margin-bottom:18px;line-height:1.6}
 
-/* 选项 */
 .options{display:flex;flex-direction:column;gap:10px}
 .option-item{padding:14px 16px;border:2px solid #e8ecf3;border-radius:12px;font-size:15px;color:#444;cursor:pointer;transition:.25s;display:flex;align-items:center;gap:10px;background:#fafbfc}
-.option-item:hover{border-color:#667eea;background:#f5f7ff}
+.option-item:active{border-color:#667eea;background:#f5f7ff}
 .option-item.selected{border-color:#667eea;background:linear-gradient(135deg,#f5f7ff,#ede9fe);color:#1a1a2e;font-weight:600;box-shadow:0 2px 12px rgba(102,126,234,.15)}
 .option-item .radio{width:20px;height:20px;border-radius:50%;border:2px solid #ccc;flex-shrink:0;transition:.25s;display:flex;align-items:center;justify-content:center}
 .option-item.selected .radio{border-color:#667eea;background:#667eea}
 .option-item.selected .radio::after{content:'';width:8px;height:8px;border-radius:50%;background:#fff}
 
-/* 输入框 */
 .input-field{width:100%;padding:14px 16px;border:2px solid #e8ecf3;border-radius:12px;font-size:15px;color:#333;outline:none;transition:.25s;background:#fafbfc}
 .input-field:focus{border-color:#667eea;background:#fff;box-shadow:0 0 0 3px rgba(102,126,234,.1)}
 
-/* 按钮 */
 .btn-next{width:100%;padding:14px;border-radius:12px;background:linear-gradient(90deg,#667eea,#764ba2);color:#fff;font-size:16px;font-weight:600;border:none;cursor:pointer;margin-top:20px;transition:.3s}
 .btn-next:disabled{background:#ccc;cursor:not-allowed}
 .btn-next:active:not(:disabled){transform:scale(.98)}
 
-/* 报告页面 */
+/* 报告页 */
 .report-page{display:none;background:#fff;border-radius:16px;padding:24px 20px;margin:12px 0;box-shadow:0 8px 32px rgba(0,0,0,.15)}
 .report-page.active{display:block;animation:fadeUp .5s ease}
-.report-header{text-align:center;padding-bottom:20px;border-bottom:2px solid #f0f0f0;margin-bottom:20px}
-.report-header h2{font-size:22px;color:#1a1a2e;margin-bottom:6px}
+.report-header{text-align:center;padding-bottom:20px;border-bottom:2px solid #f0f0f0;margin-bottom:24px}
+.report-header h2{font-size:20px;color:#1a1a2e;margin-bottom:6px;line-height:1.4}
 .report-header .date{font-size:12px;color:#999}
-.section{margin-bottom:24px}
-.section-title{font-size:17px;font-weight:700;color:#1a1a2e;margin-bottom:14px;padding-left:12px;border-left:4px solid #667eea}
-.section-content{font-size:14px;color:#555;line-height:1.85}
-.score-card{display:inline-block;padding:6px 14px;border-radius:20px;font-size:13px;font-weight:600;margin:4px 4px}
-.score-high{background:#e8f5e9;color:#2e7d32}
-.score-mid{background:#fff3e0;color:#e65100}
-.score-low{background:#fce4ec;color:#c62828}
-.career-tag{display:inline-block;padding:6px 14px;border-radius:20px;font-size:13px;font-weight:600;margin:4px 4px;background:linear-gradient(135deg,#e8ecff,#dee6fc);color:#3949ab}
-.career-bad{display:inline-block;padding:6px 14px;border-radius:20px;font-size:13px;font-weight:600;margin:4px 4px;background:#ffebee;color:#c62828}
-.plan-card{background:#f8f9ff;border-radius:12px;padding:16px;margin:10px 0;border-left:4px solid #667eea}
-.plan-card h4{font-size:15px;color:#1a1a2e;margin-bottom:8px}
-.plan-card p{font-size:13px;color:#555;line-height:1.75}
+.section{margin-bottom:28px}
+.section-title{font-size:16px;font-weight:700;color:#1a1a2e;margin-bottom:14px;padding-left:12px;border-left:4px solid #667eea;line-height:1.5}
+.section-content{font-size:14px;color:#555;line-height:1.9}
+.section-content p{margin-bottom:8px}
+
+/* 信息卡 */
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.info-cell{background:#f8f9ff;border-radius:10px;padding:10px 12px;text-align:center}
+.info-cell .label{font-size:11px;color:#999;margin-bottom:4px}
+.info-cell .value{font-size:14px;font-weight:600;color:#1a1a2e}
+
+/* 评分卡 */
+.score-bar{display:flex;align-items:center;gap:10px;margin:8px 0}
+.score-bar .name{font-size:14px;color:#555;min-width:60px;font-weight:600}
+.score-bar .bar{flex:1;height:10px;background:#eee;border-radius:5px;overflow:hidden}
+.score-bar .bar .inner{height:100%;border-radius:5px;transition:width .6s ease}
+.score-bar .num{font-size:14px;font-weight:700;min-width:36px;text-align:right}
+.score-high{background:linear-gradient(90deg,#66bb6a,#43a047)}
+.score-mid{background:linear-gradient(90deg,#ffa726,#fb8c00)}
+.score-low{background:linear-gradient(90deg,#ef5350,#e53935)}
+
+/* 标签 */
+.tag{display:inline-block;padding:5px 12px;border-radius:16px;font-size:12px;font-weight:600;margin:3px}
+.tag-blue{background:linear-gradient(135deg,#e8ecff,#dee6fc);color:#3949ab}
+.tag-green{background:#e8f5e9;color:#2e7d32}
+.tag-orange{background:#fff3e0;color:#e65100}
+.tag-red{background:#ffebee;color:#c62828}
+
+/* 计划卡 */
+.plan-card{background:#f8f9ff;border-radius:12px;padding:16px;margin:12px 0;border-left:4px solid #667eea}
+.plan-card h4{font-size:15px;color:#1a1a2e;margin-bottom:10px}
+.plan-card .item{font-size:13px;color:#555;line-height:1.8;margin-bottom:6px;padding-left:8px;border-left:2px solid #dde}
+.plan-card .item strong{color:#1a1a2e}
+
+/* 路径卡 */
 .path-card{background:#fefefe;border:1px solid #eee;border-radius:12px;padding:16px;margin:10px 0}
 .path-card h4{font-size:15px;color:#1a1a2e;margin-bottom:8px}
-.path-card p{font-size:13px;color:#555;line-height:1.75}
+.path-card p{font-size:13px;color:#555;line-height:1.8}
+.path-card .sub{margin-top:6px;color:#888;font-size:12px;line-height:1.6}
 .path-recommend{border-left:4px solid #4caf50}
 .path-neutral{border-left:4px solid #ff9800}
 .path-caution{border-left:4px solid #f44336}
 
-/* 二维码获客 */
-.qrcode-section{text-align:center;padding:24px 16px;background:linear-gradient(135deg,#f5f7ff,#ede9fe);border-radius:16px;margin-top:20px}
+/* 二维码 */
+.qrcode-section{text-align:center;padding:24px 16px;background:linear-gradient(135deg,#f5f7ff,#ede9fe);border-radius:16px;margin-top:24px}
 .qrcode-section p{font-size:14px;color:#555;margin-bottom:12px;font-weight:600}
-.qrcode-section img{width:180px;height:180px;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,.1)}
+.qrcode-section img{width:160px;height:160px;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,.1)}
 .qrcode-section .hint{font-size:12px;color:#999;margin-top:10px}
 
-/* 免责声明 */
-.disclaimer-box{font-size:11px;color:#bbb;text-align:center;margin:20px 0 30px;line-height:1.6;padding:0 10px}
+.disclaimer-box{font-size:11px;color:#bbb;text-align:center;margin:20px 0 30px;line-height:1.7;padding:0 10px}
 
 /* 多选标签 */
 .tag-options{display:flex;flex-wrap:wrap;gap:8px}
 .tag-option{padding:10px 16px;border:2px solid #e8ecf3;border-radius:20px;font-size:14px;color:#555;cursor:pointer;transition:.25s;background:#fafbfc}
-.tag-option:hover{border-color:#667eea}
+.tag-option:active{border-color:#667eea}
 .tag-option.selected{border-color:#667eea;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;font-weight:600}
 
 /* 滑块 */
@@ -105,15 +123,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue"
 
 <div class="container">
 
-<!-- ====== 封面页 ====== -->
+<!-- ====== 封面 ====== -->
 <div id="page-cover" style="display:flex;">
   <div class="logo-icon">🎯</div>
-  <h1>大学生职业规划测评</h1>
+  <h1>大学生多维度<br>生涯规划测评</h1>
   <div class="subtitle">
     高校就业指导中心 · 职业生涯规划课程<br><br>
-    基于霍兰德职业兴趣理论 × MBTI人格类型<br>
+    霍兰德职业兴趣理论 × MBTI人格类型<br>
     多元智能理论 × 财商四维模型<br>
-    综合运算生成个性化职业预判报告
+    综合运算 → 个性化职业预判报告
   </div>
   <button class="start-btn" onclick="startTest()">开始测评</button>
   <div class="disclaimer">
@@ -122,150 +140,131 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue"
   </div>
 </div>
 
-<!-- ====== Q1 年级+年龄 ====== -->
+<!-- ====== Q1 ====== -->
 <div id="q1" class="page">
   <div class="progress-bar"><div class="fill" style="width:14%"></div></div>
   <div class="step-label">第 1 题 / 共 7 题</div>
   <div class="q-title">请问你是大一还是大二？今年多少岁？</div>
-  <div class="q-desc">请选择你的年级和年龄，这将影响后续规划建议的针对性。</div>
+  <div class="q-desc">年级和年龄将影响后续规划建议的针对性。</div>
   <div class="options" id="opts-q1"></div>
   <button class="btn-next" id="btn-q1" disabled onclick="nextQ(2)">下一步</button>
 </div>
 
-<!-- ====== Q2 性别 ====== -->
+<!-- ====== Q2 ====== -->
 <div id="q2" class="page">
   <div class="progress-bar"><div class="fill" style="width:28%"></div></div>
   <div class="step-label">第 2 题 / 共 7 题</div>
   <div class="q-title">你的性别是？</div>
-  <div class="q-desc">性别信息用于匹配行业数据中的性别分布差异。</div>
+  <div class="q-desc">用于匹配行业数据中的性别分布差异。</div>
   <div class="options" id="opts-q2"></div>
   <button class="btn-next" id="btn-q2" disabled onclick="nextQ(3)">下一步</button>
 </div>
 
-<!-- ====== Q3 兴趣爱好（多选） ====== -->
+<!-- ====== Q3 ====== -->
 <div id="q3" class="page">
   <div class="progress-bar"><div class="fill" style="width:42%"></div></div>
   <div class="step-label">第 3 题 / 共 7 题</div>
   <div class="q-title">平时课余兴趣爱好是什么？</div>
-  <div class="q-desc">可多选。你更倾向于哪类活动？（选择1-3项最符合的）</div>
+  <div class="q-desc">可多选，选择1-3项最符合的：</div>
   <div class="tag-options" id="opts-q3"></div>
-  <button class="btn-next" id="btn-q3" onclick="nextQ(4)">下一步</button>
+  <button class="btn-next" onclick="nextQ(4)">下一步</button>
 </div>
 
-<!-- ====== Q4 性格描述（多选） ====== -->
+<!-- ====== Q4 ====== -->
 <div id="q4" class="page">
   <div class="progress-bar"><div class="fill" style="width:56%"></div></div>
   <div class="step-label">第 4 题 / 共 7 题</div>
-  <div class="q-title">描述一下自己的性格特征。</div>
-  <div class="q-desc">可多选。请选择最贴合你日常表现的2-4个词：</div>
+  <div class="q-title">描述一下自己的性格特征</div>
+  <div class="q-desc">可多选，选择最贴合日常表现的2-4个：</div>
   <div class="tag-options" id="opts-q4"></div>
-  <button class="btn-next" id="btn-q4" onclick="nextQ(5)">下一步</button>
+  <button class="btn-next" onclick="nextQ(5)">下一步</button>
 </div>
 
-<!-- ====== Q5 情商自评（滑块） ====== -->
+<!-- ====== Q5 ====== -->
 <div id="q5" class="page">
   <div class="progress-bar"><div class="fill" style="width:70%"></div></div>
   <div class="step-label">第 5 题 / 共 7 题</div>
   <div class="q-title">人际交往情商自评</div>
-  <div class="q-desc">以下维度请按1-10分进行自我评估：</div>
-  
+  <div class="q-desc">以下三个维度请按1-10分进行自我评估：</div>
+
   <div style="margin-bottom:18px">
     <p style="font-size:14px;font-weight:600;color:#333;margin-bottom:8px">① 沟通协调能力</p>
     <div class="slider-wrap">
-      <input type="range" min="1" max="10" value="5" id="eq1" oninput="updateSliderLabel('eq1')">
+      <input type="range" min="1" max="10" value="5" id="eq1" oninput="updateLbl('eq1')">
       <div class="slider-labels"><span>较弱</span><span id="eq1-lbl">5</span><span>较强</span></div>
     </div>
   </div>
-  
   <div style="margin-bottom:18px">
     <p style="font-size:14px;font-weight:600;color:#333;margin-bottom:8px">② 共情理解他人能力</p>
     <div class="slider-wrap">
-      <input type="range" min="1" max="10" value="5" id="eq2" oninput="updateSliderLabel('eq2')">
+      <input type="range" min="1" max="10" value="5" id="eq2" oninput="updateLbl('eq2')">
       <div class="slider-labels"><span>较弱</span><span id="eq2-lbl">5</span><span>较强</span></div>
     </div>
   </div>
-  
   <div style="margin-bottom:18px">
     <p style="font-size:14px;font-weight:600;color:#333;margin-bottom:8px">③ 处理人际关系矛盾的能力</p>
     <div class="slider-wrap">
-      <input type="range" min="1" max="10" value="5" id="eq3" oninput="updateSliderLabel('eq3')">
+      <input type="range" min="1" max="10" value="5" id="eq3" oninput="updateLbl('eq3')">
       <div class="slider-labels"><span>较弱</span><span id="eq3-lbl">5</span><span>较强</span></div>
     </div>
   </div>
-  
+
   <button class="btn-next" onclick="nextQ(6)">下一步</button>
 </div>
 
-<!-- ====== Q6 智商倾向（多选） ====== -->
+<!-- ====== Q6 ====== -->
 <div id="q6" class="page">
   <div class="progress-bar"><div class="fill" style="width:84%"></div></div>
   <div class="step-label">第 6 题 / 共 7 题</div>
   <div class="q-title">学习思维智商倾向</div>
-  <div class="q-desc">你在学习中最擅长的是哪些方面？（可多选，选1-3项）</div>
+  <div class="q-desc">你在学习中最擅长哪些方面？可多选1-3项：</div>
   <div class="tag-options" id="opts-q6"></div>
-  <button class="btn-next" id="btn-q6" onclick="nextQ(7)">下一步</button>
+  <button class="btn-next" onclick="nextQ(7)">下一步</button>
 </div>
 
-<!-- ====== Q7 财商认知（单选+文本） ====== -->
+<!-- ====== Q7 ====== -->
 <div id="q7" class="page">
   <div class="progress-bar"><div class="fill" style="width:98%"></div></div>
   <div class="step-label">第 7 题 / 共 7 题</div>
   <div class="q-title">财商认知与消费观念</div>
-  <div class="q-desc">请回答以下问题：</div>
-  
-  <p style="font-size:14px;font-weight:600;color:#333;margin:16px 0 10px">① 你的月均消费水平大约是？</p>
+
+  <p style="font-size:14px;font-weight:600;color:#333;margin:16px 0 10px">① 月均消费水平大约是？</p>
   <div class="options" id="opts-q7a"></div>
-  
-  <p style="font-size:14px;font-weight:600;color:#333;margin:20px 0 10px">② 你是否有理财意识或理财行为？</p>
+
+  <p style="font-size:14px;font-weight:600;color:#333;margin:20px 0 10px">② 是否有理财意识或理财行为？</p>
   <div class="options" id="opts-q7b"></div>
-  
-  <p style="font-size:14px;font-weight:600;color:#333;margin:20px 0 10px">③ 你对兼职、副业、财富积累的看法？（简述即可）</p>
+
+  <p style="font-size:14px;font-weight:600;color:#333;margin:20px 0 10px">③ 对兼职、副业、财富积累的看法？</p>
   <textarea class="textarea-field" id="q7c" placeholder="例如：想通过兼职赚生活费、对投资感兴趣、还没想过等..."></textarea>
-  
+
   <button class="btn-next" onclick="generateReport()">生成我的职业规划报告</button>
 </div>
 
-<!-- ====== 报告页 ====== -->
+<!-- ====== 报告 ====== -->
 <div id="report" class="report-page">
   <div class="report-header">
-    <h2>🎯 个人职业规划报告</h2>
+    <h2>🎯 大学生多维度生涯规划测评报告</h2>
     <p class="date" id="report-date"></p>
   </div>
-  
-  <!-- 板块一：个人综合特质解析 -->
-  <div class="section">
-    <div class="section-title">一、个人综合特质解析</div>
-    <div class="section-content" id="sec1-content"></div>
-  </div>
-  
-  <!-- 板块二：霍兰德职业适配方向 -->
-  <div class="section">
-    <div class="section-title">二、霍兰德职业适配方向预判</div>
-    <div class="section-content" id="sec2-content"></div>
-  </div>
-  
-  <!-- 板块三：分学年行动计划 -->
-  <div class="section">
-    <div class="section-title">三、大一大二分学年行动计划</div>
-    <div class="section-content" id="sec3-content"></div>
-  </div>
-  
-  <!-- 板块四：长期发展建议 -->
-  <div class="section">
-    <div class="section-title">四、长期发展路径建议</div>
-    <div class="section-content" id="sec4-content"></div>
-  </div>
-  
-  <!-- 获客二维码 -->
+
+  <div class="section"><div class="section-title">一、个人基础信息概览</div><div class="section-content" id="sec1"></div></div>
+  <div class="section"><div class="section-title">二、性格与情商综合分析</div><div class="section-content" id="sec2"></div></div>
+  <div class="section"><div class="section-title">三、智商思维优势与短板解读</div><div class="section-content" id="sec3"></div></div>
+  <div class="section"><div class="section-title">四、财商现状分析与提升建议</div><div class="section-content" id="sec4"></div></div>
+  <div class="section"><div class="section-title">五、适配职业赛道预判</div><div class="section-content" id="sec5"></div></div>
+  <div class="section"><div class="section-title">六、大一学年规划方案</div><div class="section-content" id="sec6"></div></div>
+  <div class="section"><div class="section-title">七、大二学年规划方案</div><div class="section-content" id="sec7"></div></div>
+  <div class="section"><div class="section-title">八、中长期发展路线建议</div><div class="section-content" id="sec8"></div></div>
+
   <div class="qrcode-section">
-    <p>📋 完成测评后，欢迎扫码获取一对一职业规划指导</p>
+    <p>📋 欢迎扫码获取一对一职业规划指导</p>
     <img src="qrcode-wechat.jpg" alt="微信二维码">
     <div class="hint">健康教练-吕勇军 | 扫码添加好友</div>
   </div>
-  
+
   <div class="disclaimer-box">
-    ⚠️ 本报告基于霍兰德职业兴趣理论、MBTI人格理论、多元智能理论与财商四维模型综合运算生成。<br>
-    结论仅供参考，不构成绝对定论。实际职业选择应结合个人意愿、家庭条件与社会环境综合考量。<br>
+    本测评结果仅作生涯规划参考，职业发展仍需结合个人努力调整。<br>
+    基于霍兰德职业兴趣理论、MBTI人格理论、多元智能理论与财商四维模型综合运算生成。<br>
     © 高校就业指导中心职业生涯规划课程
   </div>
 </div>
@@ -273,305 +272,167 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue"
 </div>
 
 <script>
-// ========== 数据采集 ==========
-var answers = {};
+var A = {}; // answers
 
-function startTest() {
-  document.getElementById('page-cover').style.display = 'none';
-  showPage('q1');
-  renderQ1();
+function startTest(){ document.getElementById('page-cover').style.display='none'; showPage('q1'); renderQ1(); }
+function showPage(id){ document.querySelectorAll('.page,.report-page').forEach(function(p){p.classList.remove('active')}); document.getElementById(id).classList.add('active'); window.scrollTo({top:0,behavior:'smooth'}); }
+function nextQ(n){ showPage('q'+n); }
+function updateLbl(id){ document.getElementById(id+'-lbl').textContent=document.getElementById(id).value; }
+
+// ===== 选项渲染 =====
+function renderSingle(cid, btnId, opts, cb){
+  var c=document.getElementById(cid); c.innerHTML='';
+  opts.forEach(function(o){
+    var el=document.createElement('div'); el.className='option-item';
+    el.innerHTML='<div class="radio"></div>'+o.t;
+    el.addEventListener('click',function(){
+      c.querySelectorAll('.option-item').forEach(function(x){x.classList.remove('selected')});
+      el.classList.add('selected'); cb(o.v);
+      if(btnId) document.getElementById(btnId).disabled=false;
+    });
+    c.appendChild(el);
+  });
 }
-
-function showPage(id) {
-  var pages = document.querySelectorAll('.page, .report-page');
-  for (var i = 0; i < pages.length; i++) pages[i].classList.remove('active');
-  document.getElementById(id).classList.add('active');
-  window.scrollTo({top: 0, behavior: 'smooth'});
-}
-
-function nextQ(n) { showPage('q' + n); }
-
-function updateSliderLabel(id) {
-  document.getElementById(id + '-lbl').textContent = document.getElementById(id).value;
-}
-
-// ---------- Q1 ----------
-function renderQ1() {
-  var opts = [
-    {v:'大一|18', t:'大一，18岁'},
-    {v:'大一|19', t:'大一，19岁'},
-    {v:'大一|20', t:'大一，20岁'},
-    {v:'大二|19', t:'大二，19岁'},
-    {v:'大二|20', t:'大二，20岁'},
-    {v:'大二|21', t:'大二，21岁'}
-  ];
-  renderSingleSelect('opts-q1', 'btn-q1', opts, function(val) { answers.grade_age = val; });
-}
-
-// ---------- Q2 ----------
-(function initQ2() {
-  var opts = [
-    {v:'男', t:'男'},
-    {v:'女', t:'女'}
-  ];
-  renderSingleSelect('opts-q2', 'btn-q2', opts, function(val) { answers.gender = val; });
-})();
-
-// ---------- Q3 兴趣爱好（多选） ----------
-(function initQ3() {
-  var tags = [
-    {v:'hands', t:'🔧 动手实操（拆装、DIY、实验）'},
-    {v:'social', t:'💬 社交沟通（社团、组织活动、演讲）'},
-    {v:'writing', t:'✍️ 文字创作（写作、阅读、自媒体）'},
-    {v:'logic', t:'🧮 逻辑思考（编程、数学、策略游戏）'},
-    {v:'art', t:'🎨 艺术创意（绘画、音乐、设计、摄影）'},
-    {v:'sports', t:'⚽ 运动健身（球类、跑步、户外）'},
-    {v:'tech', t:'💻 科技数码（电脑、手机、新科技产品）'},
-    {v:'business', t:'📊 商业财经（股票、创业、经济新闻）'}
-  ];
-  renderMultiTag('opts-q3', tags, function(vals) { answers.interests = vals; });
-})();
-
-// ---------- Q4 性格描述（多选） ----------
-(function initQ4() {
-  var tags = [
-    {v:'introvert', t:'偏内向（喜欢独处思考）'},
-    {v:'extrovert', t:'偏外向（喜欢与人交流）'},
-    {v:'slowwarm', t:'慢热型（熟悉后放得开）'},
-    {v:'hesitate', t:'容易纠结犹豫'},
-    {v:'execute', t:'执行力强（说干就干）'},
-    {v:'procrastinate', t:'偶尔拖延（DDL驱动）'},
-    {v:'leader', t:'有领导欲/喜欢主导'},
-    {v:'teamwork', t:'擅长团队协作'},
-    {v:'detail', t:'注重细节完美主义'},
-    {v:'bigpicture', t:'大局观强抓大放小'}
-  ];
-  renderMultiTag('opts-q4', tags, function(vals) { answers.personality = vals; });
-})();
-
-// ---------- Q6 智商倾向（多选） ----------
-(function initQ6() {
-  var tags = [
-    {v:'liberal', t:'📖 文科记忆（背诵、语言、历史）'},
-    {v:'science', t:'🔬 理科逻辑（数学、物理、推理）'},
-    {v:'practice', t:'🛠️ 实践动手（实验、操作、维修）'},
-    {v:'comprehensive', t:'🔄 综合理解（跨学科融会贯通）'},
-    {v:'language', t:'🗣️ 语言表达（口语、辩论、写作）'},
-    {v:'spatial', t:'📐 空间想象（几何、设计、地图）'}
-  ];
-  renderMultiTag('opts-q6', tags, function(vals) { answers.iqType = vals; });
-})();
-
-// ---------- Q7a 消费水平 ----------
-(function initQ7a() {
-  var opts = [
-    {v:'low', t:'≤800元/月（节俭型）'},
-    {v:'mid', t:'800–1500元/月（普通型）'},
-    {v:'high', t:'1500–2500元/月（小康型）'},
-    {v:'luxury', t:'≥2500元/月（宽裕型）'}
-  ];
-  renderSingleSelect('opts-q7a', null, opts, function(val) { answers.consume = val; });
-})();
-
-// ---------- Q7b 理财意识 ----------
-(function initQ7b() {
-  var opts = [
-    {v:'none', t:'没有理财意识，月光族'},
-    {v:'basic', t:'有基本储蓄习惯，但未系统理财'},
-    {v:'active', t:'主动学习理财知识，有小额投资/基金'},
-    {v:'entrepreneur', t:'已有兼职收入或副业尝试'}
-  ];
-  renderSingleSelect('opts-q7b', null, opts, function(val) { answers.finance = val; });
-})();
-
-
-// ========== 渲染工具函数 ==========
-
-function renderSingleSelect(containerId, btnId, options, callback) {
-  var c = document.getElementById(containerId);
-  c.innerHTML = '';
-  options.forEach(function(opt) {
-    var el = document.createElement('div');
-    el.className = 'option-item';
-    el.innerHTML = '<div class="radio"></div>' + opt.t;
-    el.onclick = function() {
-      var items = c.querySelectorAll('.option-item');
-      for (var i = 0; i < items.length; i++) items[i].classList.remove('selected');
-      el.classList.add('selected');
-      callback(opt.v);
-      if (btnId) document.getElementById(btnId).disabled = false;
-    };
+function renderMulti(cid, tags, cb){
+  var c=document.getElementById(cid); c.innerHTML=''; var sel=[];
+  tags.forEach(function(t){
+    var el=document.createElement('div'); el.className='tag-option'; el.textContent=t.t;
+    el.addEventListener('click',function(){
+      var idx=sel.indexOf(t.v);
+      if(idx>-1){sel.splice(idx,1);el.classList.remove('selected')}else{sel.push(t.v);el.classList.add('selected')}
+      cb(sel.slice());
+    });
     c.appendChild(el);
   });
 }
 
-function renderMultiTag(containerId, tags, callback) {
-  var c = document.getElementById(containerId);
-  c.innerHTML = '';
-  var selected = [];
-  tags.forEach(function(tag) {
-    var el = document.createElement('div');
-    el.className = 'tag-option';
-    el.textContent = tag.t;
-    el.onclick = function() {
-      var idx = selected.indexOf(tag.v);
-      if (idx > -1) {
-        selected.splice(idx, 1);
-        el.classList.remove('selected');
-      } else {
-        selected.push(tag.v);
-        el.classList.add('selected');
-      }
-      callback(selected.slice());
-    };
-    c.appendChild(el);
-  });
+// ===== 初始化各题 =====
+function renderQ1(){
+  renderSingle('opts-q1','btn-q1',[
+    {v:'大一|18',t:'大一，18岁'},{v:'大一|19',t:'大一，19岁'},{v:'大一|20',t:'大一，20岁'},
+    {v:'大二|19',t:'大二，19岁'},{v:'大二|20',t:'大二，20岁'},{v:'大二|21',t:'大二，21岁'}
+  ],function(v){A.grade_age=v});
 }
+renderSingle('opts-q2','btn-q2',[{v:'男',t:'男'},{v:'女',t:'女'}],function(v){A.gender=v});
+renderMulti('opts-q3',[
+  {v:'hands',t:'🔧 动手实操'},{v:'social',t:'💬 社交沟通'},{v:'writing',t:'✍️ 文字创作'},
+  {v:'logic',t:'🧮 逻辑思考'},{v:'art',t:'🎨 艺术创意'},{v:'sports',t:'⚽ 运动健身'},
+  {v:'tech',t:'💻 科技数码'},{v:'business',t:'📊 商业财经'}
+],function(v){A.interests=v});
+renderMulti('opts-q4',[
+  {v:'introvert',t:'偏内向'},{v:'extrovert',t:'偏外向'},{v:'slowwarm',t:'慢热型'},
+  {v:'hesitate',t:'容易纠结'},{v:'execute',t:'执行力强'},{v:'procrastinate',t:'偶尔拖延'},
+  {v:'leader',t:'有领导欲'},{v:'teamwork',t:'擅长协作'},{v:'detail',t:'注重细节'},{v:'bigpicture',t:'大局观强'}
+],function(v){A.personality=v});
+renderMulti('opts-q6',[
+  {v:'liberal',t:'📖 文科记忆'},{v:'science',t:'🔬 理科逻辑'},{v:'practice',t:'🛠️ 实践动手'},
+  {v:'comprehensive',t:'🔄 综合理解'},{v:'language',t:'🗣️ 语言表达'},{v:'spatial',t:'📐 空间想象'}
+],function(v){A.iqType=v});
+renderSingle('opts-q7a',null,[
+  {v:'low',t:'≤800元/月（节俭型）'},{v:'mid',t:'800-1500元/月（普通型）'},
+  {v:'high',t:'1500-2500元/月（小康型）'},{v:'luxury',t:'≥2500元/月（宽裕型）'}
+],function(v){A.consume=v});
+renderSingle('opts-q7b',null,[
+  {v:'none',t:'没有理财意识，月光族'},{v:'basic',t:'有基本储蓄习惯'},
+  {v:'active',t:'主动学习理财，有小额投资'},{v:'entrepreneur',t:'已有兼职或副业'}
+],function(v){A.finance=v});
 
 
-// ========== 核心分析引擎 ==========
+// ===== 核心引擎 =====
+function generateReport(){
+  A.financeView=document.getElementById('q7c').value||'未填写';
+  A.eqScores={comm:parseInt(document.getElementById('eq1').value),empathy:parseInt(document.getElementById('eq2').value),conflict:parseInt(document.getElementById('eq3').value)};
+  A.eqAvg=Math.round((A.eqScores.comm+A.eqScores.empathy+A.eqScores.conflict)/3);
 
-function generateReport() {
-  // 收集Q7第三问
-  answers.financeView = document.getElementById('q7c').value || '未填写';
-  // 收集EQ分数
-  answers.eqScores = {
-    communicate: parseInt(document.getElementById('eq1').value),
-    empathy: parseInt(document.getElementById('eq2').value),
-    conflict: parseInt(document.getElementById('eq3').value)
-  };
-  answers.eqAvg = Math.round((answers.eqScores.communicate + answers.eqScores.empathy + answers.eqScores.conflict) / 3);
+  var h=calcHolland(), mbti=inferMBTI(), s=calcScores();
+  var ga=(A.grade_age||'').split('|'), grade=ga[0]||'大一', age=parseInt(ga[1])||19;
 
-  // 霍兰德六型打分
-  var holland = calcHolland();
-  // MBTI推断
-  var mbti = inferMBTI();
-  // 三商评分
-  var scores = calcScores();
-
-  // 显示报告
-  document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
+  document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active')});
   document.getElementById('report').classList.add('active');
-  document.getElementById('report-date').textContent = new Date().toLocaleDateString('zh-CN');
+  document.getElementById('report-date').textContent='测评日期：'+new Date().toLocaleDateString('zh-CN');
 
-  renderSection1(mbti, scores, holland);
-  renderSection2(holland, mbti);
-  renderSection3(scores, mbti, holland);
-  renderSection4(holland, mbti, scores);
-
-  window.scrollTo({top: 0, behavior: 'smooth'});
+  renderS1(grade,age,mbti,h,s);
+  renderS2(mbti,s,h);
+  renderS3(s,h,mbti);
+  renderS4(s);
+  renderS5(h,mbti);
+  renderS6(s,mbti,h,grade);
+  renderS7(s,mbti,h,grade);
+  renderS8(h,mbti,s);
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 
-
-// --- 霍兰德六型计算 ---
-function calcHolland() {
-  var R=0,I=0,A=0,S=0,E=0,C=0; // 实用型/研究型/艺术型/社会型/企业型/常规型
-  var ints = answers.interests || [];
-  var pers = answers.personality || [];
-  var iq = answers.iqType || [];
-
-  // 兴趣映射
-  if (ints.indexOf('hands')>-1) R+=3;
-  if (ints.indexOf('logic')>-1) I+=3;
-  if (ints.indexOf('art')>-1) A+=3;
-  if (ints.indexOf('social')>-1) S+=3;
-  if (ints.indexOf('business')>-1) E+=3;
-  if (ints.indexOf('tech')>-1) { R+=1; I+=1; }
-  if (ints.indexOf('writing')>-1) { A+=2; I+=1; }
-  if (ints.indexOf('sports')>-1) R+=2;
-
-  // 性格映射
-  if (pers.indexOf('extrovert')>-1) { S+=2; E+=2; }
-  if (pers.indexOf('introvert')>-1) { I+=2; A+=1; C+=1; }
-  if (pers.indexOf('leader')>-1) E+=3;
-  if (pers.indexOf('teamwork')>-1) S+=2;
-  if (pers.indexOf('detail')>-1) C+=3;
-  if (pers.indexOf('bigpicture')>-1) E+=2;
-  if (pers.indexOf('execute')>-1) { E+=2; R+=1; }
-
-  // IQ映射
-  if (iq.indexOf('science')>-1) I+=3;
-  if (iq.indexOf('liberal')>-1) { A+=1; S+=1; }
-  if (iq.indexOf('practice')>-1) R+=3;
-  if (iq.indexOf('comprehensive')>-1) { I+=1; E+=1; S+=1; }
-  if (iq.indexOf('language')>-1) { S+=2; A+=1; }
-  if (iq.indexOf('spatial')>-1) { I+=2; A+=2; R+=1; }
-
-  return {R:R,I:I,A:A,S:S,E:E,C:C};
+function calcHolland(){
+  var R=0,I=0,A2=0,S=0,E=0,C=0;
+  var n=A.interests||[],p=A.personality||[],q=A.iqType||[];
+  if(n.indexOf('hands')>-1)R+=3; if(n.indexOf('logic')>-1)I+=3; if(n.indexOf('art')>-1)A2+=3;
+  if(n.indexOf('social')>-1)S+=3; if(n.indexOf('business')>-1)E+=3;
+  if(n.indexOf('tech')>-1){R+=1;I+=1} if(n.indexOf('writing')>-1){A2+=2;I+=1} if(n.indexOf('sports')>-1)R+=2;
+  if(p.indexOf('extrovert')>-1){S+=2;E+=2} if(p.indexOf('introvert')>-1){I+=2;A2+=1;C+=1}
+  if(p.indexOf('leader')>-1)E+=3; if(p.indexOf('teamwork')>-1)S+=2; if(p.indexOf('detail')>-1)C+=3;
+  if(p.indexOf('bigpicture')>-1)E+=2; if(p.indexOf('execute')>-1){E+=2;R+=1}
+  if(q.indexOf('science')>-1)I+=3; if(q.indexOf('liberal')>-1){A2+=1;S+=1} if(q.indexOf('practice')>-1)R+=3;
+  if(q.indexOf('comprehensive')>-1){I+=1;E+=1;S+=1} if(q.indexOf('language')>-1){S+=2;A2+=1} if(q.indexOf('spatial')>-1){I+=2;A2+=2;R+=1}
+  return{R:R,I:I,A:A2,S:S,E:E,C:C};
 }
 
-
-// --- MBTI推断 ---
-function inferMBTI() {
-  var EI='E', NS='N', TF='F', JP='J';
-  var pers = answers.personality || [];
-  var ints = answers.interests || [];
-
-  if (pers.indexOf('introvert')>-1 && pers.indexOf('extrovert')===-1) EI='I';
-  if (pers.indexOf('extrovert')>-1 && pers.indexOf('introvert')===-1) EI='E';
-
-  if (ints.indexOf('logic')>-1 || ints.indexOf('tech')>-1 || (answers.iqType||[]).indexOf('science')>-1) NS='N';
-  else NS='S';
-
-  if (pers.indexOf('detail')>-1 || (answers.eqScores||{}).empathy>=7) TF='F';
-  else if ((answers.iqType||[]).indexOf('science')>-1 || ints.indexOf('logic')>-1) TF='T';
-  else TF='F';
-
-  if (pers.indexOf('execute')>-1 && pers.indexOf('procrastinate')===-1) JP='J';
-  else if (pers.indexOf('hesitate')>-1 || pers.indexOf('procrastinate')>-1) JP='P';
-  else JP='J';
-
+function inferMBTI(){
+  var EI='E',NS='N',TF='F',JP='J',p=A.personality||[],n=A.interests||[];
+  if(p.indexOf('introvert')>-1&&p.indexOf('extrovert')===-1)EI='I';
+  if(n.indexOf('logic')>-1||n.indexOf('tech')>-1||(A.iqType||[]).indexOf('science')>-1)NS='N'; else NS='S';
+  if(p.indexOf('detail')>-1||(A.eqScores||{}).empathy>=7)TF='F';
+  else if((A.iqType||[]).indexOf('science')>-1||n.indexOf('logic')>-1)TF='T';
+  if(p.indexOf('execute')>-1&&p.indexOf('procrastinate')===-1)JP='J';
+  else if(p.indexOf('hesitate')>-1||p.indexOf('procrastinate')>-1)JP='P';
   return EI+NS+TF+JP;
 }
 
-
-// --- 三商评分 ---
-function calcScores() {
-  var eq = answers.eqAvg || 5;
-  var iqBase = 5;
-  var iqTypes = answers.iqType || [];
-  if (iqTypes.length>=2) iqBase += 1;
-  if (iqTypes.indexOf('comprehensive')>-1) iqBase += 1;
-  if (iqTypes.indexOf('science')>-1) iqBase += 1;
-
-  var fqMap = {'none':3,'basic':5,'active':7,'entrepreneur':8};
-  var fq = fqMap[answers.finance] || 5;
-  if (answers.consume==='low') fq += 1;
-  if (answers.consume==='luxury' && answers.finance!=='active' && answers.finance!=='entrepreneur') fq -= 1;
-  fq = Math.max(1, Math.min(10, fq));
-
-  return {EQ:eq, IQ:Math.min(10,iqBase), FQ:fq};
+function calcScores(){
+  var eq=A.eqAvg||5, iq=5, fqm={'none':3,'basic':5,'active':7,'entrepreneur':8};
+  var iqTypes=A.iqType||[];
+  if(iqTypes.length>=2)iq+=1; if(iqTypes.indexOf('comprehensive')>-1)iq+=1; if(iqTypes.indexOf('science')>-1)iq+=1;
+  var fq=fqm[A.finance]||5;
+  if(A.consume==='low')fq+=1; if(A.consume==='luxury'&&A.finance!=='active'&&A.finance!=='entrepreneur')fq-=1;
+  return{EQ:eq,IQ:Math.min(10,iq),FQ:Math.max(1,Math.min(10,fq))};
 }
 
+// ===== 报告8板块 =====
 
-// ========== 报告渲染 ==========
+// --- 一、个人基础信息概览 ---
+function renderS1(grade,age,mbti,h,s){
+  var hn={R:'实用型(R)',I:'研究型(I)',A:'艺术型(A)',S:'社会型(S)',E:'企业型(E)',C:'常规型(C)'};
+  var top3=Object.entries(h).sort(function(a,b){return b[1]-a[1]}).slice(0,3);
+  var code=top3.map(function(t){return t[0]}).join('-');
+  var codeNames=top3.map(function(t){return hn[t[0]]}).join(' → ');
 
-// ---- 板块一：综合特质 ----
-function renderSection1(mbti, scores, h) {
-  var mbtiDesc = getMBTIDesc(mbti);
-  var eqLevel = scores.EQ>=7?'较强':scores.EQ>=5?'中等':'待提升';
-  var iqLevel = scores.IQ>=7?'突出':scores.IQ>=5?'良好':'均衡发展中';
-  var fqLevel = scores.FQ>=7?'意识较好':scores.FQ>=5?'一般':'需加强培养';
-  
-  var top3 = Object.entries(h).sort(function(a,b){return b[1]-a[1]}).slice(0,3);
-  var typeNames = {R:'实用型(R)',I:'研究型(I)',A:'艺术型(A)',S:'社会型(S)',E:'企业型(E)',C:'常规型(C)'};
+  var html='<div class="info-grid">';
+  html+='<div class="info-cell"><div class="label">年级</div><div class="value">'+grade+'</div></div>';
+  html+='<div class="info-cell"><div class="label">年龄</div><div class="value">'+age+'岁</div></div>';
+  html+='<div class="info-cell"><div class="label">性别</div><div class="value">'+(A.gender||'—')+'</div></div>';
+  html+='<div class="info-cell"><div class="label">MBTI推断</div><div class="value">'+mbti+'</div></div>';
+  html+='</div>';
 
-  var html = '<p><strong>推断MBTI类型：</strong>' + mbti + ' — ' + mbtiDesc + '</p>';
-  html += '<p style="margin-top:10px"><strong>霍兰德代码（前三位）：</strong>';
-  top3.forEach(function(t){ html += '<span class="career-tag">' + typeNames[t[0]] + '</span>'; });
-  html += '</p>';
-  html += '<p style="margin-top:14px"><strong>三商评估：</strong></p>';
-  html += '<p>情商(EQ)：' + scores.EQ + '/10 — ' + eqLevel + ' <span class="score-' + (scores.EQ>=7?'high':scores.EQ>=5?'mid':'low') + '">' + eqLevel + '</span></p>';
-  html += '<p>智商(IQ)：' + scores.IQ + '/10 — ' + iqLevel + ' <span class="score-' + (scores.IQ>=7?'high':scores.IQ>=5?'mid':'low') + '">' + iqLevel + '</span></p>';
-  html += '<p>财商(FQ)：' + scores.FQ + '/10 — ' + fqLevel + ' <span class="score-' + (scores.FQ>=7?'high':scores.FQ>=5?'mid':'low') + '">' + fqLevel + '</span></p>';
+  html+='<p style="margin-top:14px"><strong>霍兰德主型代码：</strong><span class="tag tag-blue">'+code+'</span></p>';
+  html+='<p style="margin-top:4px"><strong>代码解读：</strong>'+codeNames+'</p>';
 
-  html += '<p style="margin-top:14px;color:#888;font-size:12px">注：以上结果基于问卷作答内容通过算法模型推算，非临床心理测量工具，仅供参考。</p>';
+  html+='<p style="margin-top:14px"><strong>三商评估总览：</strong></p>';
+  html+=scoreBar('情商 EQ',s.EQ);
+  html+=scoreBar('智商 IQ',s.IQ);
+  html+=scoreBar('财商 FQ',s.FQ);
 
-  document.getElementById('sec1-content').innerHTML = html;
+  html+='<p style="margin-top:10px;color:#888;font-size:12px">以上结果基于问卷作答通过算法模型推算，非临床心理测量工具，仅供参考。</p>';
+  document.getElementById('sec1').innerHTML=html;
 }
 
-function getMBTIDesc(m) {
-  var d = {
+function scoreBar(name,val){
+  var cls=val>=7?'score-high':val>=5?'score-mid':'score-low';
+  var pct=val*10;
+  return '<div class="score-bar"><span class="name">'+name+'</span><div class="bar"><div class="inner '+cls+'" style="width:'+pct+'%"></div></div><span class="num">'+val+'/10</span></div>';
+}
+
+// --- 二、性格与情商综合分析 ---
+function renderS2(mbti,s,h){
+  var mbtiD={
     'ISTJ':'务实稳重，注重规则与秩序，适合需要严谨执行力的岗位',
     'ISFJ':'温和细致，富有责任感，擅长照顾他人需求',
     'INFJ':'理想主义者，追求深层意义，具有洞察力',
@@ -586,267 +447,326 @@ function getMBTIDesc(m) {
     'ENTJ':'果断的领导者，目标导向，善于组织资源',
     'ESTJ':'高效的管理者，重视效率、秩序与结果',
     'ESFJ':'热心周到，关注群体氛围与他人感受',
-    'ENTP':'机智灵活，善于辩论与创新思维'
+    'ENTP':'机智灵活，善于辩论与创新思维',
+    'ENFP':'充满热情的创意者，善于发现可能性'
   };
-  return d[m] || '独特组合，兼具多种特质优势';
+  var desc=mbtiD[mbti]||'独特组合，兼具多种特质优势';
+  var pers=A.personality||[];
+  var pMap={introvert:'偏内向',extrovert:'偏外向',slowwarm:'慢热型',hesitate:'容易纠结',execute:'执行力强',procrastinate:'偶尔拖延',leader:'有领导欲',teamwork:'擅长协作',detail:'注重细节',bigpicture:'大局观强'};
+
+  var html='<p><strong>MBTI人格类型推断：</strong><span class="tag tag-blue">'+mbti+'</span></p>';
+  html+='<p style="margin-top:6px">'+desc+'</p>';
+
+  html+='<p style="margin-top:14px"><strong>自选性格关键词：</strong></p>';
+  html+='<p>';
+  if(pers.length>0) pers.forEach(function(p){html+='<span class="tag tag-blue">'+(pMap[p]||p)+'</span>'});
+  else html+='<span style="color:#999">未选择</span>';
+  html+='</p>';
+
+  html+='<p style="margin-top:14px"><strong>情商分维度评估：</strong></p>';
+  html+=scoreBar('沟通协调',A.eqScores.comm);
+  html+=scoreBar('共情理解',A.eqScores.empathy);
+  html+=scoreBar('矛盾处理',A.eqScores.conflict);
+
+  var eqLv=s.EQ>=7?'较强':s.EQ>=5?'中等':'待提升';
+  var eqAdv=[], eqWeak=[];
+  if(A.eqScores.comm>=7)eqAdv.push('沟通协调能力突出');else if(A.eqScores.comm<5)eqWeak.push('沟通协调能力偏弱');
+  if(A.eqScores.empathy>=7)eqAdv.push('共情理解能力强');else if(A.eqScores.empathy<5)eqWeak.push('共情理解有待加强');
+  if(A.eqScores.conflict>=7)eqAdv.push('矛盾处理能力出色');else if(A.eqScores.conflict<5)eqWeak.push('矛盾处理经验不足');
+
+  if(eqAdv.length>0) html+='<p style="margin-top:10px"><strong>✅ 情商优势：</strong>'+eqAdv.join('；')+'</p>';
+  if(eqWeak.length>0) html+='<p style="margin-top:6px"><strong>⚠️ 待提升：</strong>'+eqWeak.join('；')+'</p>';
+
+  // 性格对职业的影响
+  html+='<p style="margin-top:14px"><strong>性格-职业影响解读：</strong></p>';
+  if(pers.indexOf('leader')>-1||pers.indexOf('extrovert')>-1) html+='<p>你具有领导/外向特质，适合需要主动沟通和团队管理的岗位（项目经理、HRBP、市场拓展等）。</p>';
+  if(pers.indexOf('introvert')>-1||pers.indexOf('detail')>-1) html+='<p>你偏向内向/注重细节，适合需要深度专注和精细操作的岗位（研发、审计、数据分析等）。</p>';
+  if(pers.indexOf('hesitate')>-1||pers.indexOf('procrastinate')>-1) html+='<p>你自评容易纠结/拖延，建议使用OKR或番茄工作法提升决策效率，面试前多做准备减少犹豫。</p>';
+
+  document.getElementById('sec2').innerHTML=html;
 }
 
-// ---- 板块二：霍兰德职业适配 ----
-function renderSection2(h, mbti) {
-  var sorted = Object.entries(h).sort(function(a,b){return b[1]-a[1]});
-  var top = sorted[0][0];
-  var second = sorted[1][0];
-  var third = sorted[2][0];
-  var weak = sorted[sorted.length-1][0];
-  var weak2 = sorted[sorted.length-2][0];
-
-  var careers = getCareers(top, second, third, mbti);
-  var avoid = getAvoid(weak, weak2);
-
-  var html = '<p style="margin-bottom:12px"><strong>你的霍兰德主型代码：</strong>' + top + '-' + second + '-' + third + '</p>';
-  html += '<p style="margin-bottom:14px"><strong>✅ 最适配职业赛道（3-5个）：</strong></p>';
-  careers.forEach(function(c){ html += '<span class="career-tag">' + c + '</span>'; });
-
-  html += '<p style="margin:18px 0 10px"><strong>⚠️ 建议谨慎选择的行业（2个）：</strong></p>';
-  avoid.forEach(function(a){ html += '<span class="career-bad">' + a + '</span>'; });
-
-  html += '<p style="margin-top:14px;color:#888;font-size:12px">职业适配依据：霍兰德RIASEC六边形理论 + 国内本科专业就业去向统计 + 公务员招录岗位分布 + 国企校招热门岗位。</p>';
-
-  document.getElementById('sec2-content').innerHTML = html;
-}
-
-function getCareers(t, s, th, m) {
-  var map = {
-    R:['工程师类（机械/电子/土木/计算机）','技术运维','质量检测','技能蓝领（高级技工/技师）','军队文职技术岗'],
-    I:['科研人员','数据分析/算法工程师','医学研究','金融量化分析','高校教师/研究员'],
-    A:['设计师（UI/UX/平面/室内）','新媒体运营/内容创作','广告策划','影视编导','艺术教育'],
-    S:['教师/培训师','人力资源/HRBP','心理咨询师','社区工作者','公务员（基层服务岗）'],
-    E:['企业管理/项目经理','销售/市场拓展','创业者/个体经营','公务员（管理岗）','投资/证券顾问'],
-    C:['财务/会计/审计','行政管理/秘书','银行柜员/运营','档案管理/图书情报','公务员（综合文字岗）']
+// --- 三、智商思维优势与短板解读 ---
+function renderS3(s,h,mbti){
+  var iqTypes=A.iqType||[];
+  var iqMap={liberal:'文科记忆',science:'理科逻辑',practice:'实践动手',comprehensive:'综合理解',language:'语言表达',spatial:'空间想象'};
+  var iqDesc={
+    liberal:'擅长语言记忆、文史理解，在需要大量背诵和文字表达的领域有优势（法学、教育、行政等）。',
+    science:'擅长逻辑推理、数理分析，在理工科研究和数据分析领域有天然优势。',
+    practice:'擅长动手实操和实验验证，在工程技术、医学检验等领域表现出色。',
+    comprehensive:'擅长跨学科融会贯通，在产品经理、咨询顾问、管理类岗位中能发挥独特价值。',
+    language:'擅长口语表达和辩论，在销售、培训、公关、媒体等领域有竞争力。',
+    spatial:'擅长空间想象和图形思维，在建筑设计、工业设计、地理信息等领域有天赋优势。'
   };
-  var list = [];
-  list = list.concat(map[t]||[]);
-  list = list.concat((map[s]||[]).slice(0,2));
-  if (list.length<4) list = list.concat((map[th]||[]).slice(0,1));
-  // MBTI微调
-  if (m.indexOf('I')>-1 && m.indexOf('T')>-1 && list.indexOf('数据分析/算法工程师')===-1)
-    list.splice(1,0,'数据分析/算法工程师');
-  if (m.indexOf('E')>-1 && m.indexOf('J')>-1 && list.indexOf('企业管理/项目经理')===-1)
-    list.splice(2,0,'企业管理/项目经理');
-  return [...new Set(list)].slice(0,5);
-}
 
-function getAvoid(w1, w2) {
-  var map = {
-    R:'纯理论研究/学术岗（需极强抽象思维耐心）',
-    I:'高强度重复性流水线操作',
-    A:'传统制造业一线操作工',
-    S:'独立封闭的技术研发（长期缺乏人际交互）',
-    E:'纯事务性文职/后台数据处理',
-    C:'高压销售/陌生拜访类工作'
-  };
-  return [map[w1]||'需进一步探索', map[w2]||'需结合实际情况判断'];
-}
+  var html='<p><strong>智商综合评分：</strong></p>';
+  html+=scoreBar('思维智力 IQ',s.IQ);
+  var iqLv=s.IQ>=7?'突出':s.IQ>=5?'良好':'均衡发展中';
+  html+='<p style="margin-top:4px">综合评级：<span class="tag '+(s.IQ>=7?'tag-green':s.IQ>=5?'tag-orange':'tag-red')+'">'+iqLv+'</span></p>';
 
-// ---- 板块三：分学年行动计划 ----
-function renderSection3(scores, mbti, h) {
-  var ga = (answers.grade_age||'').split('|');
-  var grade = ga[0] || '大一';
-  var age = parseInt(ga[1]) || 19;
-
-  var plan1 = getFreshmanPlan(scores, mbti, h);
-  var plan2 = getSophomorePlan(scores, mbti, h);
-
-  var html = '';
-
-  html += '<div class="plan-card">';
-  html += '<h4>📅 大一学年行动计划（夯实基础期）</h4>';
-  plan1.forEach(function(p){ html += '<p>• ' + p + '</p>'; });
-  html += '</div>';
-
-  html += '<div class="plan-card">';
-  html += '<h4>📅 大二学年行动计划（考证实习期）</h4>';
-  plan2.forEach(function(p){ html += '<p>• ' + p + '</p>'; });
-  html += '</div>';
-
-  if (grade === '大一') {
-    html += '<p style="margin-top:12px;color:#667eea;font-size:13px;font-weight:600">💡 你目前是大一，建议从上方"大一计划"开始逐步推进。每学期末复盘一次，根据实际情况动态调整。</p>';
+  html+='<p style="margin-top:14px"><strong>自选思维优势：</strong></p>';
+  if(iqTypes.length>0){
+    iqTypes.forEach(function(t){html+='<span class="tag tag-blue">'+iqMap[t]+'</span>'});
+    html+='<p style="margin-top:10px">';
+    iqTypes.forEach(function(t){html+=iqDesc[t]+'<br>'});
+    html+='</p>';
   } else {
-    html += '<p style="margin-top:12px;color:#667eea;font-size:13px;font-weight:600">💡 你目前是大二，建议重点关注"大二计划"，同时补齐大一阶段尚未完成的基础任务。</p>';
+    html+='<p style="color:#999">未选择</p>';
   }
 
-  document.getElementById('sec3-content').innerHTML = html;
+  // 短板分析
+  var allTypes=['liberal','science','practice','comprehensive','language','spatial'];
+  var missing=allTypes.filter(function(t){return iqTypes.indexOf(t)===-1});
+  if(missing.length>0&&missing.length<6){
+    html+='<p style="margin-top:14px"><strong>⚠️ 未覆盖的思维维度：</strong></p>';
+    html+='<p>';
+    missing.forEach(function(t){html+='<span class="tag tag-orange">'+iqMap[t]+'</span>'});
+    html+='</p>';
+    if(missing.indexOf('science')>-1&&iqTypes.indexOf('liberal')>-1) html+='<p style="margin-top:6px">你的思维偏文科，建议有意识补充数理逻辑训练（如学习Python基础、参加数据分析课程），这对未来求职和考研都有帮助。</p>';
+    if(missing.indexOf('language')>-1) html+='<p style="margin-top:6px">语言表达维度未选，建议通过演讲比赛、课堂展示等途径主动练习——这是职场最被低估的核心能力。</p>';
+  }
+
+  // 霍兰德交叉
+  var sorted=Object.entries(h).sort(function(a,b){return b[1]-a[1]});
+  var top=sorted[0][0];
+  html+='<p style="margin-top:14px"><strong>智商-职业交叉验证：</strong></p>';
+  if(top==='I'&&iqTypes.indexOf('science')>-1) html+='<p>你的理科逻辑优势与研究型主型高度一致，学术路线（考研→科研/高校）是高概率匹配方向。</p>';
+  else if(top==='R'&&iqTypes.indexOf('practice')>-1) html+='<p>你的实践动手优势与实用型主型高度一致，工程技术路线是天然匹配。</p>';
+  else if(top==='E'&&iqTypes.indexOf('comprehensive')>-1) html+='<p>你的综合理解能力与企业型主型互补，适合管理/产品/咨询类岗位。';
+  else if(top==='A'&&(iqTypes.indexOf('spatial')>-1||iqTypes.indexOf('liberal')>-1)) html+='<p>你的空间想象/文科记忆优势与艺术型主型匹配，创意设计类岗位是最佳出口。</p>';
+  else html+='<p>你的思维特征与霍兰德主型存在一定张力，这意味着你在某些领域可能需要额外学习来弥补——这并不是坏事，多元思维反而是竞争力。</p>';
+
+  document.getElementById('sec3').innerHTML=html;
 }
 
-function getFreshmanPlan(s, m, h) {
-  var p = [];
-  // 通用
-  p.push('<strong>学业基础：</strong>保持GPA 3.0以上，重点攻克英语四级（CET-4），争取在大一下学期通过。英语是考研/考公/求职的硬门槛。');
-  p.push('<strong>专业认知：</strong>深入了解本专业核心课程体系与未来出口（读研/就业/考公各占多少比例），咨询辅导员或学长学姐获取真实信息。');
-  p.push('<strong>通识拓展：</strong>选修1-2门跨学科课程（如计算机基础、经济学原理、心理学导论），拓宽知识面。');
+// --- 四、财商现状分析与提升建议 ---
+function renderS4(s){
+  var consumeMap={low:'≤800元/月（节俭型）',mid:'800-1500元/月（普通型）',high:'1500-2500元/月（小康型）',luxury:'≥2500元/月（宽裕型）'};
+  var financeMap={none:'没有理财意识，月光族',basic:'有基本储蓄习惯',active:'主动学习理财，有小额投资',entrepreneur:'已有兼职或副业'};
 
-  // 根据三商定制
-  if (s.EQ < 6) {
-    p.push('<strong>情商提升：</strong>加入1个学生组织或社团（学生会/志愿者协会/兴趣社团），刻意练习公开表达与团队协作。这是大学阶段提升EQ成本最低的方式。');
-  }
-  if (s.FQ < 5) {
-    p.push('<strong>财商启蒙：</strong>从记账开始，了解基本理财概念（复利、基金定投、信用卡使用规范），推荐阅读《小狗钱钱》《富爸爸穷爸爸》。');
-  }
+  var html='<p><strong>财商综合评分：</strong></p>';
+  html+=scoreBar('财商 FQ',s.FQ);
+  var fqLv=s.FQ>=7?'意识较好':s.FQ>=5?'一般':'需加强培养';
+  html+='<p style="margin-top:4px">评级：<span class="tag '+(s.FQ>=7?'tag-green':s.FQ>=5?'tag-orange':'tag-red')+'">'+fqLv+'</span></p>';
 
-  // 根据霍兰德主型
-  var topType = Object.entries(h).sort(function(a,b){return b[1]-a[1]})[0][0];
-  if (topType === 'I' || topType === 'R') {
-    p.push('<strong>专业深化：</strong>关注本专业相关的学科竞赛（数学建模/电子设计/ACM/机械创新等），以赛促学，为保研/求职简历加分。');
-  }
-  if (topType === 'S' || topType === 'E') {
-    p.push('<strong>社会实践：</strong>参与暑期社会实践或志愿服务项目，积累组织协调经验，这对未来申请国企/事业单位有帮助。');
-  }
-  if (topType === 'A') {
-    p.push('<strong>作品积累：</strong>开始建立个人作品集（设计稿/文章/视频等），在知乎/B站/小红书等平台输出内容，建立个人品牌雏形。');
-  }
+  html+='<p style="margin-top:14px"><strong>消费水平：</strong>'+(consumeMap[A.consume]||'未选择')+'</p>';
+  html+='<p><strong>理财状态：</strong>'+(financeMap[A.finance]||'未选择')+'</p>';
+  if(A.financeView&&A.financeView!=='未填写') html+='<p><strong>自我表述：</strong>"'+A.financeView+'"</p>';
 
-  // MBTI定制
-  if (m.indexOf('I') > -1) {
-    p.push('<strong>内向者建议：</strong>不必强迫自己变得外向，但需要有意识地建立3-5个深度人际关系（导师/学长/志同道合的同学）。人脉的质量比数量更重要。');
-  }
-  if (m.indexOf('P') > -1) {
-    p.push('<strong>计划性训练：</strong>使用日程管理工具（如滴答清单/Notion），将每周任务可视化分解，对抗拖延倾向。');
-  }
-
-  return p;
-}
-
-function getSophomorePlan(s, m, h) {
-  var p = [];
-
-  // 通用
-  p.push('<strong>证书考取：</strong>根据专业方向确定目标证书——英语六级（CET-6）、计算机二级/三级、普通话等级证、驾驶证、初级会计/教师资格证等。不要盲目考证，优先与职业目标强相关。');
-  p.push('<strong>实习启动：</strong>大二下学期开始寻找第一份实习（寒暑假优先）。首份实习不必追求大厂，重点是了解职场基本规则、验证自己对行业的真实感受。');
-  p.push('<strong>升学决策：</strong>大二结束前初步决定是否考研/保研。如果决定考研，大三上学期开始准备；如果决定就业，重点转向实习与技能提升。');
-
-  // 根据霍兰德
-  var sorted = Object.entries(h).sort(function(a,b){return b[1]-a[1]});
-  var top = sorted[0][0];
-
-  if (top === 'E') {
-    p.push('<strong>领导力实践：</strong>竞选学生组织部长级以上职务，或发起一个校园项目（创业比赛/社团活动），积累管理经验写入简历。');
-  }
-  if (top === 'I' || top === 'R') {
-    p.push('<strong>科研/项目：</strong>联系专业课导师进入实验室做科研助理，或参加"互联网+"/"挑战杯"等创新创业大赛。');
-  }
-  if (top === 'S') {
-    p.push('<strong>助教/辅导经历：</strong>担任课程助教或学业辅导员，锻炼沟通表达能力，同时巩固专业知识。');
-  }
-  if (top === 'C') {
-    p.push('<strong>办公技能：</strong>精通Office套件（Excel高级功能/PPT制作/Word排版），学习Python基础或SQL数据库操作，这些是任何办公室岗位的基础竞争力。');
-  }
-
-  // 财商进阶
-  if (s.FQ >= 6) {
-    p.push('<strong>财商进阶：</strong>开设证券账户进行小额模拟炒股/基金定投实操，或尝试一项兼职（家教/代写/校园代理），理解劳动报酬与时间价值的关系。');
+  // 具体建议
+  html+='<p style="margin-top:14px"><strong>📈 提升建议：</strong></p>';
+  if(s.FQ<=4){
+    html+='<div class="plan-card">';
+    html+='<h4>财商起步期（FQ ≤ 4）</h4>';
+    html+='<div class="item"><strong>第一步：</strong>从今天开始记账。用手机自带的备忘录或微信小程序"随手记"，记录每一笔支出，坚持21天养成习惯。</div>';
+    html+='<div class="item"><strong>第二步：</strong>制定月度预算表。将生活费分为"刚需（餐费/交通/学习）""弹性（社交/娱乐）""储蓄"三部分，储蓄目标不低于10%。</div>';
+    html+='<div class="item"><strong>第三步：</strong>阅读入门书。推荐《小狗钱钱》（1小时读完）→《富爸爸穷爸爸》→《经济学原理》（曼昆），从故事到概念到体系。</div>';
+    html+='<div class="item"><strong>第四步：</strong>了解"复利"概念。用计算器算一下：每月存200元，年化5%，30年后是多少钱？答案是16.6万——本金只有7.2万。这就是时间+复利的力量。</div>';
+    html+='</div>';
+  } else if(s.FQ<=6){
+    html+='<div class="plan-card">';
+    html+='<h4>财商成长期（FQ 5-6）</h4>';
+    html+='<div class="item"><strong>进阶1：</strong>学习基金定投。在支付宝/天天基金开通定投，每月100-300元投宽基指数（沪深300/中证500），体验"用时间换空间"。</div>';
+    html+='<div class="item"><strong>进阶2：</strong>了解四类资产。现金（流动性）→ 债券（稳健）→ 股票/基金（增值）→ 不动产（保值），理解不同资产的风险收益特征。</div>';
+    html+='<div class="item"><strong>进阶3：</strong>尝试兼职。家教/代写/校园代理/线上设计/短视频剪辑——找到"用时间换钱"的第一份体验，理解劳动报酬与时间价值的关系。</div>';
+    html+='</div>';
   } else {
-    p.push('<strong>财商起步：</strong>制定每月预算表，控制冲动消费，尝试存下生活费的10%-20%作为应急储备金。');
+    html+='<div class="plan-card">';
+    html+='<h4>财商提升期（FQ ≥ 7）</h4>';
+    html+='<div class="item"><strong>深化1：</strong>构建个人投资组合。按"4321法则"分配：40%增值（基金/股票）、30%稳健（债券/存款）、20%流动（货币基金）、10%保险保障。</div>';
+    html+='<div class="item"><strong>深化2：</strong>关注宏观经济。定期阅读财经媒体（财新/经济观察报/36氪），理解利率/通胀/汇率对个人资产的影响。</div>';
+    html+='<div class="item"><strong>深化3：</strong>从副业到创业。利用已有兼职经验，思考能否标准化/规模化——这是从"卖时间"到"卖产品/服务"的跃迁。</div>';
+    html+='</div>';
   }
 
-  // MBTI定制
-  if (m.indexOf('J') > -1) {
-    p.push('<strong>目标管理：</strong>制定详细的年度OKR（目标与关键结果），将考研/考证/实习目标拆解到每个月，定期回顾进度。');
-  }
-  if (m.indexOf('N') > -1) {
-    p.push('<strong>视野拓展：</strong>关注行业趋势报告（麦肯锡/艾瑞/Gartner），参加1-2场行业讲座或校友分享会，避免闭门造车。');
+  // 消费警示
+  if(A.consume==='luxury'&&A.finance!=='active'&&A.finance!=='entrepreneur'){
+    html+='<p style="margin-top:12px;padding:10px 14px;background:#fff3e0;border-radius:10px;font-size:13px;color:#e65100"><strong>⚠️ 消费警示：</strong>你月均消费≥2500元但尚无系统理财习惯，建议尽快建立预算管理机制。大学阶段的高消费习惯会直接影响毕业后的财务压力——房贷、车贷、结婚等大额支出在前方等你。</p>';
   }
 
-  return p;
+  document.getElementById('sec4').innerHTML=html;
 }
 
-// ---- 板块四：长期发展建议 ----
-function renderSection4(h, mbti, s) {
-  var sorted = Object.entries(h).sort(function(a,b){return b[1]-a[1]});
-  var top = sorted[0][0];
-  var second = sorted[1][0];
+// --- 五、适配职业赛道预判 ---
+function renderS5(h,mbti){
+  var sorted=Object.entries(h).sort(function(a,b){return b[1]-a[1]});
+  var top=sorted[0][0],second=sorted[1][0],third=sorted[2][0];
+  var weak=sorted[5][0],weak2=sorted[4][0];
+  var hn={R:'实用型(R)',I:'研究型(I)',A:'艺术型(A)',S:'社会型(S)',E:'企业型(E)',C:'常规型(C)'};
 
-  var paths = getPathAdvice(top, second, mbti, s);
+  var html='<p><strong>霍兰德主型代码：</strong><span class="tag tag-blue">'+top+'-'+second+'-'+third+'</span></p>';
+  html+='<p style="margin-top:4px;color:#888;font-size:12px">即 '+hn[top]+' → '+hn[second]+' → '+hn[third]+'，以下推荐基于此代码结合国内就业数据生成。</p>';
 
-  var html = '';
-  paths.forEach(function(path){
-    var cls = path.level==='recommend'?'path-recommend':path.level==='neutral'?'path-neutral':'path-caution';
-    html += '<div class="path-card ' + cls + '">';
-    html += '<h4>' + path.icon + ' ' + path.title + '</h4>';
-    html += '<p>' + path.content + '</p>';
-    if (path.extra) html += '<p style="margin-top:6px;color:#888;font-size:12px">' + path.extra + '</p>';
-    html += '</div>';
+  // 3个最优方向
+  var top3=getCareerList(top,second,third,mbti);
+  html+='<p style="margin-top:16px"><strong>✅ 推荐的最优职业方向（3个）：</strong></p>';
+  top3.forEach(function(c,i){
+    html+='<div style="background:#f8f9ff;border-radius:10px;padding:12px 14px;margin:8px 0;border-left:3px solid #667eea">';
+    html+='<p style="font-weight:700;color:#1a1a2e;font-size:14px">方向'+(i+1)+'：'+c.name+'</p>';
+    html+='<p style="font-size:13px;color:#555;margin-top:4px">'+c.desc+'</p>';
+    html+='</div>';
   });
 
-  html += '<p style="margin-top:16px;color:#888;font-size:12px;line-height:1.7">⚠️ 以上路径建议基于当前测评结果推算。国内就业形势复杂多变，建议每年至少重新评估一次职业规划。考研/考公/就业/创业各有优劣，关键在于与自身性格、能力、家庭条件的匹配度。最终决策权在你手中。</p>';
+  // 慎选方向
+  var avoid=getAvoidList(weak,weak2);
+  html+='<p style="margin-top:16px"><strong>⚠️ 慎选方向（与你的特质匹配度较低）：</strong></p>';
+  avoid.forEach(function(a){
+    html+='<div style="background:#fff8f8;border-radius:10px;padding:10px 14px;margin:6px 0;border-left:3px solid #f44336">';
+    html+='<p style="font-size:13px;color:#c62828">'+a+'</p>';
+    html+='</div>';
+  });
 
-  document.getElementById('sec4-content').innerHTML = html;
+  html+='<p style="margin-top:12px;color:#888;font-size:12px">职业适配依据：霍兰德RIASEC六边形理论 + 国内本科专业就业去向统计 + 公务员招录岗位分布 + 国企校招热门岗位。</p>';
+  document.getElementById('sec5').innerHTML=html;
 }
 
-function getPathAdvice(top, second, m, s) {
-  var paths = [];
+function getCareerList(t,s,th,m){
+  var pool={
+    R:[{name:'工程技术类',desc:'机械/电子/土木/计算机等工程师岗位，技术运维、质量检测、高级技工。适合动手能力强、注重实效的你。'},{name:'军队文职/国防科技',desc:'军队文职技术岗、国防科技工业，稳定且技术含量高，适合实用型人才。'}],
+    I:[{name:'科研/数据分析',desc:'科研人员、数据分析/算法工程师、医学研究、金融量化分析。适合逻辑缜密、善于探究规律的你。'},{name:'高校教师/研究员',desc:'高校教职、研究院所，深耕学术领域。需硕博学历支撑。'}],
+    A:[{name:'创意设计类',desc:'UI/UX/平面/室内设计师，新媒体运营/内容创作，广告策划，影视编导。适合审美敏锐、表达欲强的你。'},{name:'艺术教育/自媒体',desc:'艺术教育培训、自媒体创作者、独立设计师。作品集 > 学历 > 专业对口。'}],
+    S:[{name:'教育/培训/咨询',desc:'教师/培训师、人力资源/HRBP、心理咨询师。适合善于倾听、乐于助人的你。'},{name:'公共服务/社区',desc:'公务员（基层服务岗）、社区工作者、社会组织管理。稳定且服务导向。'}],
+    E:[{name:'企业管理/市场',desc:'项目经理、销售/市场拓展、创业者、投资顾问。适合目标驱动、善于组织资源的你。'},{name:'公务员管理岗',desc:'党政机关综合管理岗、国企管培生。企业型人格在体制内管理岗有发挥空间。'}],
+    C:[{name:'财务/行政/银行',desc:'财务/会计/审计、行政管理、银行柜员/运营。适合注重规范、做事细致的你。'},{name:'公务员综合文字岗',desc:'政府综合文字岗、档案管理/图书情报。流程清晰、稳定性强。'}]
+  };
+  var list=(pool[t]||[]).concat((pool[s]||[]).slice(0,1));
+  // MBTI微调
+  if(m.indexOf('I')>-1&&m.indexOf('T')>-1){
+    var hasData=false; list.forEach(function(c){if(c.name.indexOf('数据')>-1)hasData=true});
+    if(!hasData) list.push({name:'数据分析/算法',desc:'MBTI内向+思维型特质，擅长独立深度思考，在数据分析、算法研究等"人与数据"的岗位上效率极高。'});
+  }
+  return list.slice(0,3);
+}
+
+function getAvoidList(w1,w2){
+  var map={
+    R:'纯理论研究/学术岗（需要极强的抽象思维和长期坐冷板凳的耐心，与你的实操偏好冲突）',
+    I:'高强度重复性流水线操作（缺乏智力挑战，容易产生倦怠）',
+    A:'传统制造业一线操作工（缺乏创造空间，压抑审美与表达欲）',
+    S:'独立封闭的技术研发（长期缺乏人际交互，难以满足你的社交需求）',
+    E:'纯事务性文职/后台数据处理（缺乏决策权与成就感来源）',
+    C:'高压销售/陌生拜访类工作（节奏快、不确定性高，与规范偏好冲突）'
+  };
+  return [map[w1]||'需进一步探索',map[w2]||'需结合实际情况判断'];
+}
+
+// --- 六、大一学年规划方案 ---
+function renderS6(s,mbti,h,grade){
+  var p=[];
+  p.push({t:'学业基础',d:'保持GPA 3.0以上，重点攻克英语四级（CET-4），争取大一下学期通过。英语是考研/考公/求职的硬门槛。'});
+  p.push({t:'专业认知',d:'深入了解本专业核心课程体系与未来出口（读研/就业/考公各占多少比例），咨询辅导员或学长学姐获取真实信息。'});
+  p.push({t:'通识拓展',d:'选修1-2门跨学科课程（如计算机基础、经济学原理、心理学导论），拓宽知识面，为跨专业发展留后路。'});
+
+  if(s.EQ<6) p.push({t:'情商提升',d:'加入1个学生组织或社团（学生会/志愿者协会/兴趣社团），刻意练习公开表达与团队协作。这是大学阶段提升EQ成本最低的方式。'});
+  if(s.FQ<5) p.push({t:'财商启蒙',d:'从记账开始，了解基本理财概念（复利、基金定投、信用卡使用规范），推荐阅读《小狗钱钱》《富爸爸穷爸爸》。'});
+
+  var topType=Object.entries(h).sort(function(a,b){return b[1]-a[1]})[0][0];
+  if(topType==='I'||topType==='R') p.push({t:'专业深化',d:'关注本专业相关的学科竞赛（数学建模/电子设计/ACM/机械创新等），以赛促学，为保研/求职简历加分。'});
+  if(topType==='S'||topType==='E') p.push({t:'社会实践',d:'参与暑期社会实践或志愿服务项目，积累组织协调经验，这对未来申请国企/事业单位有帮助。'});
+  if(topType==='A') p.push({t:'作品积累',d:'开始建立个人作品集（设计稿/文章/视频等），在知乎/B站/小红书等平台输出内容，建立个人品牌雏形。'});
+  if(topType==='C') p.push({t:'规范训练',d:'培养文档能力和办公技能（Word排版/Excel数据处理/PPT制作），这些"不起眼"的技能在实习和求职中往往成为加分项。'});
+
+  if(mbti.indexOf('I')>-1) p.push({t:'内向者建议',d:'不必强迫自己变得外向，但需要有意识地建立3-5个深度人际关系（导师/学长/志同道合的同学）。人脉的质量比数量更重要。'});
+  if(mbti.indexOf('P')>-1) p.push({t:'计划性训练',d:'使用日程管理工具（如滴答清单/Notion），将每周任务可视化分解，对抗拖延倾向。建议每周日晚花10分钟做下周计划。'});
+
+  var html='<div class="plan-card"><h4>📅 大一学年：夯实基础期</h4>';
+  p.forEach(function(item){html+='<div class="item"><strong>'+item.t+'：</strong>'+item.d+'</div>'});
+  html+='</div>';
+
+  if(grade==='大一') html+='<p style="margin-top:10px;color:#667eea;font-size:13px;font-weight:600">💡 你目前是大一，建议按以上方案逐步推进。每学期末复盘一次，根据实际情况动态调整。</p>';
+  else html+='<p style="margin-top:10px;color:#667eea;font-size:13px;font-weight:600">💡 你目前是大二，建议回顾大一阶段的完成情况，补齐尚未完成的基础任务。</p>';
+
+  document.getElementById('sec6').innerHTML=html;
+}
+
+// --- 七、大二学年规划方案 ---
+function renderS7(s,mbti,h,grade){
+  var p=[];
+  p.push({t:'证书考取',d:'根据专业方向确定目标证书——英语六级（CET-6）、计算机二级/三级、普通话等级证、驾驶证、初级会计/教师资格证等。不要盲目考证，优先与职业目标强相关。'});
+  p.push({t:'实习启动',d:'大二下学期开始寻找第一份实习（寒暑假优先）。首份实习不必追求大厂，重点是了解职场基本规则、验证自己对行业的真实感受。'});
+  p.push({t:'升学决策',d:'大二结束前初步决定是否考研/保研。如果决定考研，大三上学期开始准备；如果决定就业，重点转向实习与技能提升。'});
+
+  var sorted=Object.entries(h).sort(function(a,b){return b[1]-a[1]}),top=sorted[0][0];
+  if(top==='E') p.push({t:'领导力实践',d:'竞选学生组织部长级以上职务，或发起一个校园项目（创业比赛/社团活动），积累管理经验写入简历。'});
+  if(top==='I'||top==='R') p.push({t:'科研/项目',d:'联系专业课导师进入实验室做科研助理，或参加"互联网+"/"挑战杯"等创新创业大赛。'});
+  if(top==='S') p.push({t:'助教/辅导经历',d:'担任课程助教或学业辅导员，锻炼沟通表达能力，同时巩固专业知识。'});
+  if(top==='C') p.push({t:'办公技能深化',d:'精通Office套件（Excel高级功能/PPT制作/Word排版），学习Python基础或SQL数据库操作，这是任何办公室岗位的基础竞争力。'});
+  if(top==='A') p.push({t:'作品集+竞赛',d:'参加设计类竞赛（大广赛/金犊奖/红点概念奖），将作品发布到Behance/站酷等平台，积累可展示的专业作品。'});
+
+  if(s.FQ>=6) p.push({t:'财商进阶',d:'开设证券账户进行小额模拟炒股/基金定投实操，或尝试一项兼职（家教/代写/校园代理），理解劳动报酬与时间价值的关系。'});
+  else p.push({t:'财商起步',d:'制定每月预算表，控制冲动消费，尝试存下生活费的10%-20%作为应急储备金。'});
+
+  if(mbti.indexOf('J')>-1) p.push({t:'目标管理',d:'制定详细的年度OKR（目标与关键结果），将考研/考证/实习目标拆解到每个月，定期回顾进度。'});
+  if(mbti.indexOf('N')>-1) p.push({t:'视野拓展',d:'关注行业趋势报告（麦肯锡/艾瑞/Gartner），参加1-2场行业讲座或校友分享会，避免闭门造车。'});
+
+  var html='<div class="plan-card"><h4>📅 大二学年：考证实习期</h4>';
+  p.forEach(function(item){html+='<div class="item"><strong>'+item.t+'：</strong>'+item.d+'</div>'});
+  html+='</div>';
+
+  if(grade==='大二') html+='<p style="margin-top:10px;color:#667eea;font-size:13px;font-weight:600">💡 你目前是大二，建议重点关注以上方案，同时确保大一基础任务已达标。</p>';
+
+  document.getElementById('sec7').innerHTML=html;
+}
+
+// --- 八、中长期发展路线建议 ---
+function renderS8(h,mbti,s){
+  var sorted=Object.entries(h).sort(function(a,b){return b[1]-a[1]});
+  var top=sorted[0][0],second=sorted[1][0];
+
+  var paths=[];
 
   // 考研
-  var pgRec = 'recommend', pgIcon = '🎓', pgTitle = '考研（学术深造路径）', pgContent = '', pgExtra = '';
-  if (top === 'I' || top === 'R') {
-    pgContent = '★★★★☆ 高度推荐。你的霍兰德主型偏向研究/实用型，具备学术潜力。研究生学历能显著提升你在专业技术领域的竞争力和薪资天花板。建议关注本专业的学硕/专硕区别，大二结束前确定目标院校。';
-    pgExtra = '适合专业：理工科（计算机/电子/机械/材料）、医学、法学、教育学等对学历要求较高的领域。';
-  } else if (top === 'S' || top === 'A') {
-    pgContent = '★★★☆☆ 可选路径。如果你的职业目标是高校教师、心理咨询师、设计师等，硕士学历是重要加分项。但如果倾向于直接就业，工作经验可能比学历更有价值。';
-    pgExtra = '注意：文科/艺术类考研竞争激烈，报录比常超过10:1，需提前做好充分准备。';
-  } else {
-    pgContent = '★★☆☆☆ 非首选。你的特质更适合在实践中成长。除非职业门槛明确要求硕士（如三甲医院医生、高校教师、部分央企总部），否则建议优先考虑就业或考公。';
-    pgExtra = '例外情况：若希望转换专业方向（如跨考法学/计算机/金融），考研是一个可行的跳板。';
-  }
-  if (s.IQ >= 7) pgContent += ' 你的IQ评估较高，学术研究能力有优势。';
-  paths.push({level:pgRec, icon:pgIcon, title:pgTitle, content:pgContent, extra:pgExtra});
+  var pgR='neutral',pgC='';
+  if(top==='I'||top==='R'){pgR='recommend';pgC='★★★★☆ 高度推荐。你的霍兰德主型偏向研究/实用型，具备学术潜力。研究生学历能显著提升你在专业技术领域的竞争力和薪资天花板。建议大二结束前确定目标院校和学硕/专硕方向。';}
+  else if(top==='S'||top==='A'){pgR='neutral';pgC='★★★☆☆ 可选路径。如果你的职业目标是高校教师、心理咨询师、设计师等，硕士学历是重要加分项。但若倾向直接就业，工作经验可能比学历更有价值。文科/艺术类考研报录比常超10:1，需提前准备。';}
+  else{pgR='caution';pgC='★★☆☆☆ 非首选。你的特质更适合在实践中成长，除非职业门槛明确要求硕士（如三甲医院医生、高校教师），否则建议优先考虑就业或考公。如希望跨专业转换方向（如跨考法学/计算机/金融），考研是可行跳板。';}
+  if(s.IQ>=7) pgC+=' 你的IQ评估较高，学术研究能力有优势。';
+  var pgE=top==='I'||top==='R'?'适合专业：理工科（计算机/电子/机械/材料）、医学、法学、教育学等对学历要求较高的领域。':'注意：评估个人学习意愿与家庭经济支撑能力后再做决定。';
+  paths.push({level:pgR,icon:'🎓',title:'考研（学术深造路径）',content:pgC,extra:pgE});
 
-  // 考公/考编
-  var gvRec = 'neutral', gvIcon = '🏛️', gvTitle = '考公/考编（体制内路径）', gvContent = '', gvExtra = '';
-  if (top === 'C' || top === 'S') {
-    gvRec = 'recommend';
-    gvContent = '★★★★☆ 较为适合。常规型/社会型人格与公务员、事业单位的工作性质契合度高——稳定性强、流程规范、服务导向。国考/省考/事业编均可作为重点备选方向。';
-    gvExtra = '推荐岗位类别：基层行政岗、税务/海关、教育系统、医疗卫生系统、社区工作者。';
-  } else if (top === 'E') {
-    gvContent = '★★★☆☆ 可以考虑，但需做好心理准备。企业型人格可能在体制内感到约束较多，晋升节奏较慢。如果你追求稳定且家庭支持考公，可以尝试。';
-    gvExtra = '更适合：党政机关综合管理岗、执法类岗位（公安/市场监管）、国企管理培训生。';
-  } else {
-    gvRec = 'caution';
-    gvContent = '★★☆☆☆ 需谨慎选择。你的性格特质与体制内工作模式匹配度一般，入职后可能面临较大适应压力。当然，如果家庭强烈期望且你本人也接受稳定优先的原则，可以备考。';
-    gvExtra = '建议先通过暑期实习体验政府机关或事业单位的工作氛围，再做出最终决定。';
-  }
-  if (s.EQ >= 7) gvContent += ' 你的EQ评估较高，面试环节有优势。';
-  paths.push({level:gvRec, icon:gvIcon, title:gvTitle, content:gvContent, extra:gvExtra});
+  // 考公
+  var gvR='neutral',gvC='';
+  if(top==='C'||top==='S'){gvR='recommend';gvC='★★★★☆ 较为适合。常规型/社会型人格与公务员/事业单位的工作性质契合度高——稳定性强、流程规范、服务导向。国考/省考/事业编均可作为重点备选方向。';}
+  else if(top==='E'){gvR='neutral';gvC='★★★☆☆ 可以考虑，但需做好心理准备。企业型人格可能在体制内感到约束较多、晋升节奏较慢。如果追求稳定且家庭支持考公，可以尝试。';}
+  else{gvR='caution';gvC='★★☆☆☆ 需谨慎选择。你的性格特质与体制内工作模式匹配度一般，入职后可能面临较大适应压力。如果家庭强烈期望且本人也接受稳定优先，可以备考，但建议先通过暑期实习体验再决定。';}
+  if(s.EQ>=7) gvC+=' 你的EQ评估较高，面试环节有优势。';
+  var gvE=top==='C'||top==='S'?'推荐岗位：基层行政岗、税务/海关、教育系统、医疗卫生系统、社区工作者。':'建议先体验政府机关或事业单位实习，确认适配后再投入备考。';
+  paths.push({level:gvR,icon:'🏛️',title:'考公/考编（体制内路径）',content:gvC,extra:gvE});
 
-  // 企业就业
-  var empRec = 'recommend', empIcon = '💼', empTitle = '企业就业（市场化路径）', empContent = '', empExtra = '';
-  if (top === 'E' || top === 'R' || top === 'I') {
-    empContent = '★★★★★ 强烈推荐。你的霍兰德主型与企业用人需求高度匹配。企业就业能提供更快的成长速度、更多元的职业选择和与绩效挂钩的薪酬回报。';
-    empExtra = '推荐方向：互联网/科技公司（产品/运营/技术）、制造业（研发/质量管理）、金融行业（投行/券商/基金）、快消品（管培生/市场）。';
-  } else if (top === 'A') {
-    empContent = '★★★★☆ 推荐考虑。创意型岗位在企业中有广阔空间，但需注意平衡商业需求与个人创作偏好。建议选择重视创意的企业文化（如互联网公司设计团队、4A广告公司、独立工作室）。';
-    empExtra = '技能要求：作品集 > 学历 > 专业对口。在校期间务必积累可展示的作品。';
-  } else {
-    empContent = '★★★☆☆ 可行路径。企业就业是最普遍的选择，但建议选择与自身性格匹配的岗位类型（如社会型→HR/客服/培训，常规型→财务/行政/运营）。';
-    empExtra = '关键动作：大二起至少完成2份高质量实习，实习留用率已成为很多企业的首要招聘渠道。';
-  }
-  if (s.FQ >= 7) empContent += ' 你的财商意识较好，有助于在薪资谈判和职业选择中做出更理性的判断。';
-  paths.push({level:empRec, icon:empIcon, title:empTitle, content:empContent, extra:empExtra});
+  // 就业
+  var emR='recommend',emC='';
+  if(top==='E'||top==='R'||top==='I'){emR='recommend';emC='★★★★★ 强烈推荐。你的霍兰德主型与企业用人需求高度匹配。企业就业能提供更快的成长速度、更多元的职业选择和与绩效挂钩的薪酬回报。';}
+  else if(top==='A'){emR='recommend';emC='★★★★☆ 推荐考虑。创意型岗位在企业中有广阔空间，但需平衡商业需求与个人创作偏好。建议选择重视创意的企业文化（互联网公司设计团队、4A广告公司、独立工作室）。';}
+  else{emR='neutral';emC='★★★☆☆ 可行路径。企业就业是最普遍的选择，建议选择与性格匹配的岗位（社会型→HR/客服/培训，常规型→财务/行政/运营）。';}
+  if(s.FQ>=7) emC+=' 你的财商意识较好，有助于在薪资谈判和职业选择中做出更理性的判断。';
+  var emE=top==='E'||top==='R'||top==='I'?'推荐方向：互联网/科技公司（产品/运营/技术）、制造业（研发/质量管理）、金融行业（投行/券商/基金）、快消品（管培生/市场）。':'关键动作：大二起至少完成2份高质量实习，实习留用率已成为很多企业的首要招聘渠道。';
+  paths.push({level:emR,icon:'💼',title:'就业（市场化路径）',content:emC,extra:emE});
 
   // 创业
-  var entRec = 'caution', entIcon = '🚀', entTitle = '创业/自由职业（自主路径）', entContent = '', entExtra = '';
-  if (top === 'E' && s.FQ >= 7 && (answers.finance==='entrepreneur'||answers.finance==='active')) {
-    entRec = 'neutral';
-    entContent = '★★★☆☆ 有一定潜力。你具备企业型人格和较好的财商意识，且有兼职/副业经验。但创业风险极高，不建议毕业即创业。建议先在企业工作3-5年积累行业经验和人脉资源后再考虑。';
-    entExtra = '推荐路径：先就业→积累经验→发现痛点→副业试水→全职创业。切忌盲目跟风。';
-  } else {
-    entContent = '★★☆☆☆ 不建议作为首选。创业需要极强的抗压能力、资金储备、人脉资源和时机把握。对于应届毕业生而言，创业失败率超过90%。';
-    entExtra = '如果你对创业有强烈兴趣，建议：①在校期间参加创业比赛积累经验 ②毕业后先进入目标行业头部公司学习 ③利用业余时间低成本试水副业项目。';
-  }
-  if ((answers.personality||[]).indexOf('execute')>-1) entContent += ' 你的执行力较强，这是创业者的必备素质之一。';
-  if ((answers.personality||[]).indexOf('hesitate')>-1) entContent += ' 但你自评容易纠结犹豫，建议在做重大决策前寻求导师或行业前辈的建议。';
-  paths.push({level:entRec, icon:entIcon, title:entTitle, content:entContent, extra:entExtra});
+  var enR='caution',enC='';
+  if(top==='E'&&s.FQ>=7&&(A.finance==='entrepreneur'||A.finance==='active')){enR='neutral';enC='★★★☆☆ 有一定潜力。你具备企业型人格和较好的财商意识，且有兼职/副业经验。但创业风险极高，不建议毕业即创业。建议先在企业工作3-5年积累行业经验和人脉后再考虑。';}
+  else{enC='★★☆☆☆ 不建议作为首选。创业需要极强的抗压能力、资金储备、人脉资源和时机把握。应届毕业生创业失败率超过90%。';}
+  if((A.personality||[]).indexOf('execute')>-1) enC+=' 你的执行力较强，这是创业者的必备素质之一。';
+  if((A.personality||[]).indexOf('hesitate')>-1) enC+=' 但你自评容易纠结犹豫，建议在做重大决策前寻求导师或行业前辈的建议。';
+  var enE='推荐路径：先就业→积累经验→发现痛点→副业试水→全职创业。切忌盲目跟风。';
+  paths.push({level:enR,icon:'🚀',title:'创业/自由职业（自主路径）',content:enC,extra:enE});
 
-  return paths;
+  // 实习（作为补充建议）
+  paths.push({level:'recommend',icon:'🏗️',title:'实习（必经路径）',content:'无论选择哪条路线，实习都是大学阶段性价比最高的投资。大二暑假前至少完成1份实习，大三暑假前至少2份。实习能帮你：①验证职业兴趣 ②积累简历素材 ③获取行业人脉 ④争取转正机会。',extra:'实习选择策略：首份实习重体验（了解行业真实状态），第二份实习重质量（名企/核心岗位/有转正机会）。'});
+
+  var html='';
+  paths.forEach(function(path){
+    var cls=path.level==='recommend'?'path-recommend':path.level==='neutral'?'path-neutral':'path-caution';
+    html+='<div class="path-card '+cls+'">';
+    html+='<h4>'+path.icon+' '+path.title+'</h4>';
+    html+='<p>'+path.content+'</p>';
+    if(path.extra) html+='<p class="sub">'+path.extra+'</p>';
+    html+='</div>';
+  });
+
+  html+='<p style="margin-top:16px;color:#888;font-size:12px;line-height:1.7">以上路径建议基于当前测评结果推算。国内就业形势复杂多变，建议每年至少重新评估一次职业规划。考研/考公/就业/创业各有优劣，关键在于与自身性格、能力、家庭条件的匹配度。最终决策权在你手中。</p>';
+
+  document.getElementById('sec8').innerHTML=html;
 }
 </script>
 </body>
